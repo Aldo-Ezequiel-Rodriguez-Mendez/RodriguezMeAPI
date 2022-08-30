@@ -8,13 +8,13 @@
     </head>
     <body>
         
-        <img id="imagen" width="300px" height="300px">
+        <img id="imagen">
         <button id="boton">Fetch</button>
         <script>
             document.getElementById('boton').addEventListener('click',async function() {
                 let dato = await hacerPeticion();
                 console.log(dato);
-                document.getElementById('imagen').src=dato.url
+                document.getElementById('imagen').setAttribute('src', dato.sprites.other.dream_world.front_default) = dato.url
              });
 
             async function hacerPeticion() {
