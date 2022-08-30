@@ -1,28 +1,60 @@
-
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta chartset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Document</title>
-    </head>
     <body>
         
-        <img id="imagen">
-        <button id="boton">Fetch</button>
-        <script>
-            document.getElementById('boton').addEventListener('click',async function() {
-                let dato = await hacerPeticion();
-                console.log(dato);
-                document.getElementById('imagen').setAttribute('src', dato.sprites.other.dream_world.front_default) = dato.url
-             });
-
-            async function hacerPeticion() {
-                let aux = 1 + Math.floor(Math.random() * 710)
-                let respuesta = await fetch ("https://pokeapi.co/api/v2/pokemon/" + aux);
-                        let datojson = await respuesta.json();
-                            return datojson
-            }
-        </script>
+        
     </body>
+</html>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='UTF-8'>
+	<title>FETCH PROMESA</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="CSS/Historial.css">
+	<link rel="stylesheet" href="CSS/HistorialResponsivo.css">
+</head>
+
+	<body>
+	    <p>Nombre: <b>Aldo Ezequiel Rodriguez Mendez</b> </p>
+        <p>N°Control: <b>19100243</b> </p>
+        <p>Profesor: <b>Ing.Gerardo Pineda Zapata</b> </p>
+
+        <center>
+            <h1>APIS POKEMONES</h1>
+
+            <TABLE BORDER CELLPADDING=10 CELLSPACING=0>
+                <thead>
+                    <TR>
+                        <TD>POKEMONES!!!</TD>
+                    </TR>
+                </thead>
+                
+                <tbody>
+                    <TR>
+                        <TD><img id="imagen" ></TD>
+                    </TR>
+                </tbody>
+                
+            </TABLE>
+            <button id="boton">Recargar</button>
+            <script>
+                document.getElementById('boton').addEventListener('click',async function() {
+                    let dato = await hacerPeticion();
+                    console.log(dato);
+                    document.getElementById('imagen').setAttribute('src', dato.sprites.other.dream_world.front_default) = dato.url
+                 });
+    
+                async function hacerPeticion() {
+                    let aux = 1 + Math.floor(Math.random() * 710)
+                    let respuesta = await fetch ("https://pokeapi.co/api/v2/pokemon/" + aux);
+                            let datojson = await respuesta.json();
+                                return datojson
+                }
+            </script>
+        </center>
+
+	</body>
 </html>
