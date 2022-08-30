@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+    <body>
+        
+        <button id="boton">Recarga</button>
+        <img id="imagen" >
+        <script>
+            document.getElementById('boton').addEventListener('click', function () 
+            {
+                hacerPeticion();
+            });
+
+            function hacerPeticion() 
+            {
+                let aux = 1 + Math.floor(Math.random() * 710)
+                fetch("https://pokeapi.co/api/v2/pokemon/" + aux)
+                    .then(respuesta => respuesta.json())
+                    .then(datos =>  document.getElementById('imagen').setAttribute('src', datos.sprites.other.dream_world.front_default) = datos.url)
+            }
+            
+        </script>
+    </body>
+</html>
