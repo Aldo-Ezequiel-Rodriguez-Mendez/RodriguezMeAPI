@@ -13,8 +13,8 @@
 	<title>FETCH PROMESA</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="CSS/Historial.css">
-	<link rel="stylesheet" href="CSS/HistorialResponsivo.css">
+	<link rel="stylesheet" href="CSS/Async.css">
+	<link rel="stylesheet" href="CSS/AsyncResponsivo.css">
 </head>
 
 	<body>
@@ -51,7 +51,7 @@
                     let aux = 1 + Math.floor(Math.random() * 710)
                     let respuesta = await fetch ("https://pokeapi.co/api/v2/pokemon/" + aux);
                             let datojson = await respuesta.json();
-                                return datojson
+                                return datojson;
                 }
             </script>
         </center>
