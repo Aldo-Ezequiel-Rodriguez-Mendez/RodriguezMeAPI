@@ -1,0 +1,29 @@
+{
+    "Empleado":{
+        "100":{
+            "Nombre":"Aldo",
+            "Telefono": "867343212",
+            "Correo": "ejemplo@hotmail.com"
+        },
+        "200":{
+            "Nombre":"Myriam",
+            "Telefono": "867453212",
+            "Correo": "ejemplo@hotmail.com"
+        },
+        "300":{
+            "Nombre":"Alan",
+            "Telefono": "8673436552",
+            "Correo": "ejemplo@hotmail.com"
+        },
+        "400":{
+            "Nombre":"Ezequiel",
+            "Telefono": "86753212",
+            "Correo": "ejemplo@hotmail.com"
+        },
+        "500":{
+            "Nombre":"Claudio",
+            "Telefono": "864323212",
+            "Correo": "ejemplo@hotmail.com"
+        }
+    }
+}
