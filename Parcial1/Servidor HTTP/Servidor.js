@@ -4,5 +4,5 @@ const servidor = http.createServer(function (req,res){
     res.end('Servidor HTTP de NoteJS respuesta');
 })
 
-servidor.listen(8082,()=>{console.log('Servidor en curso en el puerto...')});
+servidor.listen(8084,()=>{console.log('Servidor en curso en el puerto...')});
 

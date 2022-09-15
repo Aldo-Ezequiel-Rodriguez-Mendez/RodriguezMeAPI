@@ -9,6 +9,6 @@ app.post('/',(req, res) =>{
     res.send('Post hecho con el servidor Express')
 });
 
-app.listen(8081, (req,res) =>{
-    console.log('servidor express escuchando en puerto 8081')
+app.listen(3000, () =>{
+    console.log('servidor express escuchando en puerto 3000')
 });
