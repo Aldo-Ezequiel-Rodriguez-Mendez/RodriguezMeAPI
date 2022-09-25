@@ -1,0 +1,4 @@
+::ffff:127.0.0.1 - - [25/Sep/2022:21:51:56 +0000] "GET /suma?x=1&y=2 HTTP/1.1" 200 12 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [25/Sep/2022:21:52:29 +0000] "GET /mayusculas/testotesto HTTP/1.1" 200 23 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [25/Sep/2022:21:52:32 +0000] "GET /suma?valor=1&valor2=2 HTTP/1.1" 200 14 "-" "Thunder Client (https://www.thunderclient.com)"
+::ffff:127.0.0.1 - - [25/Sep/2022:21:52:34 +0000] "GET /mayusculas/:cadena?Nombre=ALDO&Apellido=RODRIGUEZ HTTP/1.1" 200 20 "-" "Thunder Client (https://www.thunderclient.com)"
