@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ModuloESM</title>
+</head>
+
+<body>
+    <label for="cadena"></label>
+    <input id="cadena" type="text">
+    <button id="btn1">Mayusculas</button>
+    <button id="btn2">Quitar espacios</button>
+    <button id="btn3">Longitud</button>
+
+    <script type="module">
+        //import * as funciones from './moduloesm.js' // para traerse todos los metodos
+
+        //import {pasarMayusculas} from './moduloesm'
+        document.getElementById("btn1").addEventListener("click",function(){
+        let cadena = document.getElementById("cadena").value;
+        console.log(funciones.pasarMayusculas(cadena))
+        })
+
+        import {quitarEspacios} from './moduloesm.js'
+        document.getElementById("btn2").addEventListener("click",function(){
+        let cadena = document.getElementById("cadena").value;
+        console.log(funciones.quitarEspacios(cadena))
+        })
+
+        import {obtenerLongitud} from './moduloesm.js'
+        document.getElementById("btn3").addEventListener("click",function(){
+        let cadena = document.getElementById("cadena").value;
+        console.log(funciones.obtenerLongitud(cadena))
+        })
+    </script>
+</body>
+<html>

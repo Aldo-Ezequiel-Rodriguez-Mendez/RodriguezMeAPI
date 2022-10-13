@@ -10,8 +10,10 @@ var path = require('path');
 app.use(express.text())
 app.use(express.json())
 
+// create a write stream (in append mode)
 var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
 
+// setup the logger
 app.use(morgan('combined', { stream: accessLogStream }))
 
 app.use((req,res,next)=>{
