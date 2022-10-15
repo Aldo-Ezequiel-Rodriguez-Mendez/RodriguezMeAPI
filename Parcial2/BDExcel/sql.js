@@ -1,21 +1,20 @@
-let json2xls = requiere('json2xls')
-let mysql = requiere('mysql')
-let fs = requiere('fs')
+let json2xls = require('json2xls')
+let postgres = require('postgres')
+let fs = require('fs')
 
-var con = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'ejemplo'
-});
+let host='localhost'     
+let port= 5432                    
+let database='ejemplo'              
+let username='postgres'            
+let password='admin'                
 
-con.connect();
 
-con.query("select * from empleado",function(error,results, fields){
-    if(error) throw error;
-   // console.log(results);
-    var xls = json2xls(results);
-    fs.writefileSync(`${_dirname}/excel/data.xlsx`, xls, 'binary');
-});
+const sql = postgres(`postgres://${username}:${password}@${host}:${port}/${database}`,{})
 
-con.end();
+async function crearExcel() {
+    const personas = await sql`select * from persona`;
+    var xls = json2xls(personas);
+    fs.writeFileSync(`${__dirname}/excel/data.xlsx`, xls, 'binary');
+}
+
+crearExcel();
