@@ -12,7 +12,7 @@ let password='admin'
 const sql = postgres(`postgres://${username}:${password}@${host}:${port}/${database}`,{})
 
 async function crearExcel() {
-    const personas = await sql`select * from persona`;
+    const personas = await sql`SELECT * FROM persona`;
     var xls = json2xls(personas);
     fs.writeFileSync(`${__dirname}/excel/data.xlsx`, xls, 'binary');
 }
