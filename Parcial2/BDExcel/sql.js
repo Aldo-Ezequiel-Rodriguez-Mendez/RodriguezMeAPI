@@ -14,7 +14,7 @@ const sql = postgres(`postgres://${username}:${password}@${host}:${port}/${datab
 async function crearExcel() {
     const personas = await sql`SELECT * FROM persona`;
     var xls = json2xls(personas);
-    fs.writeFileSync(`${__dirname}/excel/data.xlsx`, xls, 'binary');
+    fs.writeFileSync(`${__dirname}/excel/data2.xlsx`, xls, 'binary');
 }
 
 crearExcel();
