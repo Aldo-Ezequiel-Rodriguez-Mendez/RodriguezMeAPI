@@ -1,5 +1,15 @@
-let postgres = require('postgres')
-let express = require('express')
+const cors = require('cors');
+
+let postgres = require('postgres');
+let express = require('express');
+
+const app = express();
+
+app.use(cors({origin: "http://localhost"}));
+
+app.use(express.text())
+app.use(express.json())
+
 
 let host='localhost';
 let port= 5432;              
@@ -8,10 +18,6 @@ let username='postgres';
 let password='admin';    
 
 const sql = postgres(`postgres://${username}:${password}@${host}:${port}/${database}`,{});
-
-const app = express();
-app.use(express.json());
-app.use(express.text());
 
 app.get('/ConsultarPersona',async function(req,res){
     try{
@@ -62,6 +68,9 @@ app.delete('/BorrarPersona/:id',async function(req, res){
     res.send(`Se ha eliminado la persona con id: ${req.params.id}`);
 });
 
-app.listen(8081,() => {
-    console.log('Servidor Express escuchando en el puerto 8081');
+app.listen(8080,() => {
+    console.log('Servidor Express escuchando en el puerto 8080');
 });
+
+
+
