@@ -15,7 +15,7 @@ const sql = postgres(`postgres://${username}:${password}@${host}:${port}/${datab
 
 /**
  * @swagger
- * /:
+ * /:/persona
  *  get:
  *   description: Información de los objetos en la tabla.
  *   responses:
@@ -33,7 +33,7 @@ router.get('/',async function(req,res){
 
 /**
  * @swagger
- * /:id:
+ * /:/persona/:id
  *  get:
  *   description: Información de una persona.
  *   responses:
@@ -54,6 +54,15 @@ router.get('/:id',async function(req,res){
     }
 })
 
+/**
+ * @swagger
+ * /:/persona
+ *  post:
+ *   description: Insertarción de una persona.
+ *   responses:
+ *    200:
+ *     description: Inserta la información de la persona ingresada en el JSON.
+*/
 router.post('/',async function(req, res){
     try {
         const personas = await sql`INSERT INTO persona (nombre, correo) values 
@@ -69,6 +78,15 @@ router.post('/',async function(req, res){
     }
 });
 
+/**
+ * @swagger
+ * /:/persona
+ *  put:
+ *   description: Actualización de una persona.
+ *   responses:
+ *    200:
+ *     description: Actualiza la información de la persona cuyo ID coincida con el ID ingresado en el JSON.
+*/
 router.put('/',async function(req, res){
     const personas = await sql`UPDATE persona set nombre = ${req.body.nombre}, 
                     correo = ${req.body.correo} WHERE id = ${req.body.id}`;
@@ -76,6 +94,15 @@ router.put('/',async function(req, res){
         res.send(`Se ha actualizado la persona con id: ${req.body.id}`);   
 });
 
+/**
+ * @swagger
+ * /:/persona/:id
+ *  delete:
+ *   description: Eliminación de una persona.
+ *   responses:
+ *    200:
+ *     description: Elimina una persona cuyo ID coincida con el parametro ingresado.
+*/
 router.delete('/:id',async function(req, res){
     const personas = await sql`DELETE FROM persona WHERE id = ${req.params.id}`;
     res.send(`Se ha eliminado la persona con id: ${req.params.id}`);

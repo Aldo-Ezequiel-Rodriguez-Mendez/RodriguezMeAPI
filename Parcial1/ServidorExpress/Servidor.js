@@ -1,7 +1,8 @@
 const express = require("express");
-const cors = require("cors");
 const app = express();
 const cadena = require("./moduloCadenas")
+
+const cors = require("cors");
 app.use(cors({origin:"http://localhost"}))
 
 var fs = require('fs');
