@@ -1,0 +1,9 @@
+npm init
+npm install "jsdoc"
+
+en el package json ponemos en el scripts "docs":
+jsdoc.app
+"type": "module"
+
+tomar el default configuration options
+npm run docs
