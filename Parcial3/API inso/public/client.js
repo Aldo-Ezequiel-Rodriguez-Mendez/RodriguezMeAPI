@@ -27,6 +27,9 @@ $(document).ready(function () {
   
   $.fn.getTodo = function () {
     $.getJSON("https://api-videojuegos-aldo.herokuapp.com/videojuego", function (data) {
+      for (var i=0;i<data.length;i++){
+        
+      }
       $("#display").append("<pre>" + JSON.stringify(data, null, 2) + "</pre>");
     });
   };
@@ -43,7 +46,9 @@ $(document).ready(function () {
         function (data) {
           $("#display").html(
             "<p>Aqui esta tu videojuego!</p><pre>" +
-              JSON.stringify(data, null, 2) +
+              "ID: " + data.id + "<br>" +
+              "Descripcion: " + data.descripcion + "<br>" +
+              "Comentarios: " + data.comentarios + "<br>" +
               "</pre>"
           );
         }

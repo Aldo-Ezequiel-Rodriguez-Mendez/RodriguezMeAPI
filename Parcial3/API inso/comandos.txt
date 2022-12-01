@@ -31,8 +31,11 @@ npm install compression
 heroku login
 git init
 heroku git:remote -a "nombre de tu applicacion en heroku"
-git add .
-gt commit -am "commit"
-git push heroku master
 
-heroku config:set MONGODB_URI="mongodb+srv://Aldo:ezequiel123@cluster0.telfxp2.mongodb.net/?retryWrites=true&w=majority"
+    //ESTOS SON LOS COMANDOS PARA HACER COMMITS Y PUSH EN HEROKU
+        git add .
+        gt commit -am "commit"
+        git push heroku master
+
+    //ESTA ES MI CONEXION A LA BASE DE DATOS DE MONGODB
+        heroku config:set MONGODB_URI="mongodb+srv://Aldo:ezequiel123@cluster0.telfxp2.mongodb.net/?retryWrites=true&w=majority"
