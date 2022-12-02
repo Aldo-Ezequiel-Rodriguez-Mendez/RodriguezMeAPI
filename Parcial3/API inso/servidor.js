@@ -25,6 +25,7 @@ const swaggerOptions = {
         },
         servers:[{url: "https://api-videojuegos-aldo.herokuapp.com/"}],  
     },
+        
         apis: [`${path.join(__dirname,"./routes/ruta_videojuego.js")}`],  
 };
 

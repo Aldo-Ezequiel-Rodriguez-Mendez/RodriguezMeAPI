@@ -15,7 +15,7 @@ const sql = postgres(`postgres://${username}:${password}@${host}:${port}/${datab
 
 /**
  * @swagger
- * /:/persona
+ * /persona:
  *  get:
  *   description: Información de los objetos en la tabla.
  *   responses:
@@ -33,8 +33,14 @@ router.get('/',async function(req,res){
 
 /**
  * @swagger
- * /:/persona/:id
+ * /persona/{id}:
  *  get:
+ *   parameters:
+ *    - in: path
+ *      name: id
+ *      type: integer
+ *      required: true
+ *      description: ID de la persona a mostrar
  *   description: Información de una persona.
  *   responses:
  *    200:
@@ -56,7 +62,7 @@ router.get('/:id',async function(req,res){
 
 /**
  * @swagger
- * /:/persona
+ * /persona:
  *  post:
  *   description: Insertarción de una persona.
  *   responses:
@@ -80,7 +86,7 @@ router.post('/',async function(req, res){
 
 /**
  * @swagger
- * /:/persona
+ * /persona:
  *  put:
  *   description: Actualización de una persona.
  *   responses:
@@ -96,7 +102,7 @@ router.put('/',async function(req, res){
 
 /**
  * @swagger
- * /:/persona/:id
+ * /persona/{id}:
  *  delete:
  *   description: Eliminación de una persona.
  *   responses:

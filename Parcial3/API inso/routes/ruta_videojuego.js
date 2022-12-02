@@ -5,7 +5,7 @@ const controlVideojuego = require('../controllers/control_videojuego');
 
 /**
  * @swagger
- * /:/videojuego
+ * /videojuego:
  *  get:
  *   description: Información de los objetos en la tabla.
  *   responses:
@@ -16,7 +16,7 @@ router.get('/videojuego', controlVideojuego.obtenerTodosVideojuegos);
 
 /**
  * @swagger
- * /:/videojuego
+ * /videojuego:
  *  post:
  *   description: Inserción de un objeto en la tabla.
  *   responses:
@@ -27,7 +27,7 @@ router.post('/videojuego', controlVideojuego.subirImg, controlVideojuego.nuevoVi
 
 /**
  * @swagger
- * /:/videojuego
+ * /videojuego:
  *  delete:
  *   description: Eliminacion de los objetos en la tabla.
  *   responses:
@@ -38,8 +38,14 @@ router.delete('/videojuego', controlVideojuego.borrarTodosVideojuegos);
 
 /**
  * @swagger
- * /:/videojuego/:id
+ * /videojuego/{id}:
  *  get:
+ *   parameters:
+ *    - in: path
+ *      name: id
+ *      type: integer
+ *      required: true
+ *      description: id del videojuego a mostrar.
  *   description: Información de un objeto en la tabla.
  *   responses:
  *    200:
@@ -49,18 +55,31 @@ router.get('/videojuego/:id', controlVideojuego.obtenerUnVideojuego);
 
 /**
  * @swagger
- * /:/videojuego
- *  get:
- *   description: Información de los objetos en la tabla.
+ * /videojuego/{id}:
+ *  post:
+ *   parameters:
+ *    - in: path
+ *      name: id
+ *      type: integer
+ *      required: true
+ *      description: id del videojuego a actualizar.
+ *   description: Actualización de los objetos en la tabla.
  *   responses:
  *    200:
- *     description: Devuelve todos las personas en la tabla.
+ *     description: Actualiza los comentarios de un videojuego.
 */
 router.post('/videojuego/:id', controlVideojuego.nuevoComentario);
+
 /**
  * @swagger
- * /:/videojuego/:id
+ * /videojuego/{id}:
  *  delete:
+ *   parameters:
+ *    - in: path
+ *      name: id
+ *      type: integer
+ *      required: true
+ *      description: id del videojuego a eliminar.
  *   description: Eliminacion de un objeto en la tabla.
  *   responses:
  *    200:

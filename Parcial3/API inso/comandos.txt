@@ -29,7 +29,9 @@ npm install compression
 
 //COMANDOS DE HEROKU
 heroku login
+
 git init
+
 heroku git:remote -a "nombre de tu applicacion en heroku"
 
     //ESTOS SON LOS COMANDOS PARA HACER COMMITS Y PUSH EN HEROKU
@@ -39,3 +41,16 @@ heroku git:remote -a "nombre de tu applicacion en heroku"
 
     //ESTA ES MI CONEXION A LA BASE DE DATOS DE MONGODB
         heroku config:set MONGODB_URI="mongodb+srv://Aldo:ezequiel123@cluster0.telfxp2.mongodb.net/?retryWrites=true&w=majority"
+
+//Mocha y chai para testing del API
+npm install --save-dev mocha
+
+npm install --save-dev chai
+
+npm install --save-dev chai-http
+
+ //NOTA: para el testing con chai y mocha es necesario agregar esto en el package.json
+ "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha"
+    },
+//--------------------------------------------------------------------------------------------------------
