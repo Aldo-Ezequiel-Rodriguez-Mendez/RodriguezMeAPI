@@ -7,7 +7,7 @@
   "main": "servidor.js",
   "scripts": {
     "start": "node servidor.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./node_modules/mocha/bin/mocha"
   },
   "dependencies": {
     "bl": "^6.0.0",

@@ -26,25 +26,24 @@ $(document).ready(function () {
   });
   
   $.fn.getTodo = function () {
-    $.getJSON("https://api-videojuegos-aldo.herokuapp.com/videojuego", function (data) {
+    $.getJSON("http://localhost:8080/videojuego", function (data) {
       $("#display").append("<pre>" + JSON.stringify(data, null, 2) + "</pre>");
     });
   };
   
   $.fn.getUno = function () {
     $("#display").append(
-      '<input type="text" id="getUno" name="name" placeholder="id">\
+      '<input type="text" id="getUno" name="name"  autocomplete="off" placeholder="id">\
           <button type="button" class="form-btn" id="unVideojuego">Obten mi videojuego!</button>'
     );
   
     $("#unVideojuego").on("click", function () {
       $.getJSON(
-        "https://api-videojuegos-aldo.herokuapp.com/videojuego/" + $("#getUno").val(),
+        "http://localhost:8080/videojuego/" + $("#getUno").val(),
         function (data) {
           $("#display").html(
             "<p>Aqui esta tu videojuego!</p><pre>" +
-              "ID: " + data.id + "<br>" +
-              "Descripcion: " + data.descripcion + "<br>" +
+              JSON.stringify(data, null, 2) +
               "</pre>"
           );
         }
@@ -54,14 +53,14 @@ $(document).ready(function () {
   
   $.fn.postCom = function () {
     $("#display").append(
-      '<input type="text" id="postCom" name="id" placeholder="id">\
-      <input type="text" id="comentario" name="comentario" placeholder="comentario">\
+      '<input type="text" id="postCom" name="id" placeholder="id" autocomplete="off">\
+      <input type="text" id="comentario" name="comentario" placeholder="comentario" autocomplete="off">\
       <button type="button" class="form-btn" id="unComentario">POST comentario!</button>'
     );
   
     $("#unComentario").on("click", function () {
       $.ajax({
-        url: "https://api-videojuegos-aldo.herokuapp.com/videojuego/" + $("#postCom").val(),
+        url: "http://localhost:8080/videojuego/" + $("#postCom").val(),
         type: "post",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -82,18 +81,20 @@ $(document).ready(function () {
   
   $.fn.postVid = function () {
     $("#display").append(
-      '<input type="text" id="id" name="id" placeholder="id">\
-      <input type="text" id="descripcion" name="descripcion" placeholder="Descripcion">\
+      '<input type="text" id="id" name="id" placeholder="id" autocomplete="off">\
+      <input type="text" id="nombre" name="nombre" placeholder="Nombre" autocomplete="off">\
+      <input type="text" id="descripcion" name="descripcion" placeholder="Descripcion" autocomplete="off">\
       <button type="submit" class="form-btn" id="nuevoVideojuego">CREAR nuevo videojuego!</button>'
     );
   
     $("#nuevoVideojuego").on("click", function () {
       $.ajax({
-        url: "https://api-videojuegos-aldo.herokuapp.com/videojuego/",
+        url: "http://localhost:8080/videojuego/",
         type: "post",
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         data: JSON.stringify({ id: $("#id").val(),
+                              nombre: $("#nombre").val(),
                               descripcion: $("#descripcion").val()}),
         success: function (data) {
           $("#display").html(
@@ -116,7 +117,7 @@ $(document).ready(function () {
   
     $("#delTodos").on("click", function () {
       $.ajax({
-        url: "https://api-videojuegos-aldo.herokuapp.com/videojuego/",
+        url: "http://localhost:8080/videojuego/",
         type: "delete",
         success: function (data) {
           $("#display").html(
@@ -134,13 +135,13 @@ $(document).ready(function () {
   
   $.fn.delUno = function () {
     $("#display").append(
-      '<input type="text" id="delUno" name="id" placeholder="id">\
+      '<input type="text" id="delUno" name="id" placeholder="id" autocomplete="off">\
       <button type="click" class="form-btn" id="delUnoBtn">DELETE Videojuego!</button>'
     );
   
     $("#delUnoBtn").on("click", function () {
       $.ajax({
-        url: "https://api-videojuegos-aldo.herokuapp.com/videojuego/" + $("#delUno").val(),
+        url: "http://localhost:8080/videojuego/" + $("#delUno").val(),
         type: "delete",
         success: function (data) {
           $("#display").html(

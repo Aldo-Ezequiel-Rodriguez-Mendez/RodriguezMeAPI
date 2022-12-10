@@ -3,6 +3,7 @@ const mongoose = require("mongoose"); //import mongoose
 // Videojuego esquema (schema)
 const VideojuegoSchema = new mongoose.Schema({
     id: {type:String, required:true},
+    nombre: String,
     descripcion: String,
     comentarios : [{
         texto: String, 

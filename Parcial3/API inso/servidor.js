@@ -23,7 +23,7 @@ const swaggerOptions = {
             title: 'API Videojuegos',
             version: '1.0.0',      
         },
-        servers:[{url: "https://api-videojuegos-aldo.herokuapp.com/"}],  
+        servers:[{url: "http://localhost:8080/"}],  
     },
         
         apis: [`${path.join(__dirname,"./routes/ruta_videojuego.js")}`],  
@@ -39,7 +39,7 @@ app.use('/public', express.static(path.join(__dirname,"./public")));
 app.use('/archivos', express.static(`${path.join(__dirname,"./archivos")}`)); //RUTA PARA CARGAR IMAGENEs de la carpeta de archivos
 
 app.route('/').get(function (req, res) {
-    res.sendFile(process.cwd() + '/index.html');
+    res.sendFile(process.cwd() + '/Parcial3/API inso/index.html');
 });
 
 //CONEXION A LA BASE DE DATOS DE MONGO DB
@@ -54,7 +54,7 @@ mongoose.connect(
     }
 );
 
-app.listen(process.env.PORT || 8080, () => {
+app.listen(8080, () => {
     console.log('Servidor express escuchando en puerto 8080');
 });
 
